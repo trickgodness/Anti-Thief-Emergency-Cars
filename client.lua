@@ -29,7 +29,6 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
         local ped = PlayerPedId()
-		local PlayerId = GetPlayerServerId(PlayerId())
         local veh = GetVehiclePedIsIn(ped, false)
         if veh ~= nil then
             if GetVehicleClass(veh) == 18 or GetVehicleClass(veh) == 15 then
@@ -37,7 +36,7 @@ Citizen.CreateThread(function()
 					if (GetPedInVehicleSeat(veh, -1) == ped) then
 						TaskLeaveVehicle(ped,veh,0)
 						if Config.KickPlayer then
-							TriggerServerEvent('kickplayer', PlayerId)
+							TriggerServerEvent('kickplayer')
 						end
 					end
 				end        
